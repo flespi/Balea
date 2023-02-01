@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{902B3EDC-5C6F-4058-8A05-DA80D4B03F97}"
 EndProject
@@ -30,6 +30,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.EntityFrameworkCore.Store", "sample\ContosoUniversity.EntityFrameworkCore.Store\ContosoUniversity.EntityFrameworkCore.Store.csproj", "{FAB1588F-DEE0-4A06-94E2-51FC0B02C897}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.IdentityServer", "sample\ContosoUniversity.IdentityServer\ContosoUniversity.IdentityServer.csproj", "{9624712C-B17A-438B-9653-83F1BC35F38C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Balea.Extensions.AspNetCore.Hosting", "src\Balea.Extensions.AspNetCore.Hosting\Balea.Extensions.AspNetCore.Hosting.csproj", "{94D4D93B-4C6D-4520-918E-D8D32251796B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.AuthorizationServer", "sample\ContosoUniversity.AuthorizationServer\ContosoUniversity.AuthorizationServer.csproj", "{77E58534-B826-4CCE-A95C-D7E0756EB51F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{9624712C-B17A-438B-9653-83F1BC35F38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9624712C-B17A-438B-9653-83F1BC35F38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9624712C-B17A-438B-9653-83F1BC35F38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94D4D93B-4C6D-4520-918E-D8D32251796B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94D4D93B-4C6D-4520-918E-D8D32251796B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94D4D93B-4C6D-4520-918E-D8D32251796B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94D4D93B-4C6D-4520-918E-D8D32251796B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77E58534-B826-4CCE-A95C-D7E0756EB51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E58534-B826-4CCE-A95C-D7E0756EB51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E58534-B826-4CCE-A95C-D7E0756EB51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E58534-B826-4CCE-A95C-D7E0756EB51F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +94,8 @@ Global
 		{4BC1F93E-EF93-4AD2-BCD7-632E2A782D80} = {58F16D81-1049-4D95-83E8-D773BEE31A5B}
 		{FAB1588F-DEE0-4A06-94E2-51FC0B02C897} = {58F16D81-1049-4D95-83E8-D773BEE31A5B}
 		{9624712C-B17A-438B-9653-83F1BC35F38C} = {58F16D81-1049-4D95-83E8-D773BEE31A5B}
+		{94D4D93B-4C6D-4520-918E-D8D32251796B} = {902B3EDC-5C6F-4058-8A05-DA80D4B03F97}
+		{77E58534-B826-4CCE-A95C-D7E0756EB51F} = {58F16D81-1049-4D95-83E8-D773BEE31A5B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {943847A1-D097-4149-BEDC-B8541BE7D287}

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<PackageLicenseUrl>$(PackageLicenseUrl)</PackageLicenseUrl>
+		<PackageProjectUrl>$(PackageProjectUrl)</PackageProjectUrl>
+		<Description>AspNetCore hosting extensions for Balea Server. For more information see http://github.com/Xabaril/Balea </Description>
+		<PackageTags>Authorization;Roles;Permissions;Delegations;AspNetCore</PackageTags>
+		<Version>$(Balea)</Version>
+		<PackageId>Balea.Extensions.AspNetCore.Hosting</PackageId>
+		<PackageVersion>$(Balea)</PackageVersion>
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder)</AllowedOutputExtensionsInPackageBuildOutputFolder>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Asp.Versioning.Http" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Balea\Balea.csproj" />
+		<ProjectReference Include="..\Balea.Api.Store\Balea.Api.Store.csproj" />
+	</ItemGroup>
+
+</Project>

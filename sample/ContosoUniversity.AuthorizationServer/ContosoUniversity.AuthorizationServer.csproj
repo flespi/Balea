@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\Balea\Balea.csproj" />
+		<ProjectReference Include="..\..\src\Balea.Configuration.Store\Balea.Configuration.Store.csproj" />
+		<ProjectReference Include="..\..\src\Balea.Extensions.AspNetCore.Hosting\Balea.Extensions.AspNetCore.Hosting.csproj" />
+	</ItemGroup>
+
+</Project>
