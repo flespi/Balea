@@ -9,7 +9,7 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class EntityFrameworkCoreStoreExtensions
 {
-    public static IBaleaBuilder AddEntityFrameworkCoreStore(this IBaleaBuilder builder, Action<StoreOptions> configurer = null)
+    public static IBaleaBuilder AddEntityFrameworkCoreGrantor(this IBaleaBuilder builder, Action<StoreOptions> configurer = null)
     {
         var options = new StoreOptions();
         configurer?.Invoke(options);

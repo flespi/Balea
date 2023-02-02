@@ -28,7 +28,7 @@ namespace ContosoUniversity.Configuration.Store
                         PermissionClaimType = "permissions"
                     };
                 })
-                .AddConfigurationStore(Configuration)
+                .AddConfigurationGrantor(Configuration)
                 .Services
                 .AddAuthentication(configureOptions =>
                 {

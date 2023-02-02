@@ -26,7 +26,7 @@ namespace FunctionalTests.Seedwork
 
                     options.WebHost.Schemes.Add("scheme2");
                 })
-                .AddConfigurationStore(configuration)
+                .AddConfigurationGrantor(configuration)
                 .Services
                 .AddAuthentication(setup =>
                 {

@@ -5,7 +5,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
 	public static class ServiceCollectionExtensions
 	{
-		public static IBaleaBuilder AddStoreProvider(this IBaleaBuilder builder)
+		public static IBaleaBuilder AddStoreGrantor(this IBaleaBuilder builder)
 		{
 			builder.Services.AddScoped<StoreAuthorizationGrantorFactory>();
 			builder.Services.AddScoped(sp => sp.GetRequiredService<StoreAuthorizationGrantorFactory>().Create());

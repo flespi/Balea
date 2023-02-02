@@ -11,7 +11,7 @@ namespace Microsoft.Extensions.DependencyInjection
 	{
 		private const string DefaultSectionName = "Balea";
 
-		public static IBaleaBuilder AddConfigurationStore(this IBaleaBuilder builder, IConfiguration configuration, string key = DefaultSectionName)
+		public static IBaleaBuilder AddConfigurationGrantor(this IBaleaBuilder builder, IConfiguration configuration, string key = DefaultSectionName)
 		{
 			builder.Services.AddOptions();
 			builder.Services.Configure<BaleaConfiguration>(configuration.GetSection(key));

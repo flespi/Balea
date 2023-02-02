@@ -25,7 +25,7 @@ namespace FunctionalTests.Seedwork
                     options.Common.ClaimTypeMap.AllowedSubjectClaimTypes.Add(JwtClaimTypes.Subject);
                     options.Common.ClaimTypeMap.AllowedSubjectClaimTypes.Add(ClaimTypes.Upn);
                 })
-                .AddConfigurationStore(configuration)
+                .AddConfigurationGrantor(configuration)
                 .Services
                 .AddAuthentication(setup =>
                 {

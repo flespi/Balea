@@ -37,7 +37,7 @@ namespace ContosoUniversity.EntityFrameworkCore.Store
                     options.Common.ClaimTypeMap.AllowedSubjectClaimTypes.Clear();
                     options.Common.ClaimTypeMap.AllowedSubjectClaimTypes.Add(JwtClaimTypes.Subject);
                 })
-                .AddEntityFrameworkCoreStore(options =>
+                .AddEntityFrameworkCoreGrantor(options =>
                 {
                     options.ConfigureDbContext = builder =>
                     {

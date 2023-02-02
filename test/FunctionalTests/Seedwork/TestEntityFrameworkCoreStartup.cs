@@ -27,7 +27,7 @@ namespace FunctionalTests.Seedwork
                     options.Common.ClaimTypeMap.AllowedSubjectClaimTypes.Add(JwtClaimTypes.Subject);
                     options.Common.ClaimTypeMap.AllowedSubjectClaimTypes.Add(ClaimTypes.Upn);
                 })
-                .AddEntityFrameworkCoreStore(options =>
+                .AddEntityFrameworkCoreGrantor(options =>
                 {
                     options.ConfigureDbContext = builder =>
                     {
