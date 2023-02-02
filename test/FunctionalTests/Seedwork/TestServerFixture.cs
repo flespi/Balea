@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
-using Balea.EntityFrameworkCore.Store.DbContexts;
+using Balea.Grantor.EntityFrameworkCore.DbContexts;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;

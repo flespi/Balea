@@ -1,4 +1,4 @@
-﻿using Balea.EntityFrameworkCore.Store.Entities;
+﻿using Balea.Grantor.EntityFrameworkCore.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;

@@ -21,11 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Balea", "src\Balea\Balea.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balea.AspNetCore", "src\Balea.AspNetCore\Balea.AspNetCore.csproj", "{B6AE3CFE-F70D-420A-B71C-85D4D4A48B09}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Balea.Configuration.Store", "src\Balea.Configuration.Store\Balea.Configuration.Store.csproj", "{4856F4E7-C091-4C65-8C86-9EC9869D15BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Balea.Grantor.Configuration", "src\Balea.Grantor.Configuration\Balea.Grantor.Configuration.csproj", "{4856F4E7-C091-4C65-8C86-9EC9869D15BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Balea.EntityFrameworkCore.Store", "src\Balea.EntityFrameworkCore.Store\Balea.EntityFrameworkCore.Store.csproj", "{2A1CD101-2868-49ED-8BD4-8B0DDD793F76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Balea.Grantor.EntityFrameworkCore", "src\Balea.Grantor.EntityFrameworkCore\Balea.Grantor.EntityFrameworkCore.csproj", "{2A1CD101-2868-49ED-8BD4-8B0DDD793F76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Balea.Api.Store", "src\Balea.Api.Store\Balea.Api.Store.csproj", "{8127B32C-7846-426A-9560-9EE3A2A25F18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Balea.Grantor.Api", "src\Balea.Grantor.Api\Balea.Grantor.Api.csproj", "{8127B32C-7846-426A-9560-9EE3A2A25F18}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.Configuration.Store", "sample\ContosoUniversity.Configuration.Store\ContosoUniversity.Configuration.Store.csproj", "{4BC1F93E-EF93-4AD2-BCD7-632E2A782D80}"
 EndProject

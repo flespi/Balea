@@ -15,14 +15,14 @@ namespace Balea.Authorization
     public class BaleaPolicyEvaluator : IPolicyEvaluator
     {
         private readonly IAuthorizationService _authorization;
-        private readonly IRuntimeAuthorizationServerStore _store;
+        private readonly IAuthorizationGrantor _store;
         private readonly BaleaOptions _options;
 		private readonly BaleaWebHost _webHost;
 		private readonly ILogger<BaleaPolicyEvaluator> _logger;
 
         public BaleaPolicyEvaluator(
             IAuthorizationService authorization,
-            IRuntimeAuthorizationServerStore store,
+            IAuthorizationGrantor store,
 			BaleaOptions options,
 			BaleaWebHost webHost,
             ILogger<BaleaPolicyEvaluator> logger)

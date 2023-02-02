@@ -10,11 +10,11 @@ Configuring the store
 
 To install Balea open a console window and type the following command using the .NET Core CLI::
 
-        dotnet package add Balea.EntityFrameworkCore.Store
+        dotnet package add Balea.Grantor.EntityFrameworkCore
 
 or using Powershell or Package Manager::
 
-        Install-Package Balea.EntityFrameworkCore.Store
+        Install-Package Balea.Grantor.EntityFrameworkCore
 
 or install via NuGet.
 
@@ -38,7 +38,7 @@ In the **ConfigureServices** method of Startup.cs, register the Balea services::
 Adding the initial migration
 ----------------------------
 
-Balea.EntityFrameworkCore.Store contains all the entities needed to store all the Balea configuration in a database. This entities could be changed over the time, so you are responsible to upgrade your own database. To manage this changes one approach is using EntityFramework Core migrations. To create the initial migration in your web application open a console window and type the following commands using the .NET Core CLI::
+Balea.Grantor.EntityFrameworkCore contains all the entities needed to store all the Balea configuration in a database. This entities could be changed over the time, so you are responsible to upgrade your own database. To manage this changes one approach is using EntityFramework Core migrations. To create the initial migration in your web application open a console window and type the following commands using the .NET Core CLI::
 
         dotnet ef migrations add Initial -c StoreDbContext -o "Migrations\Balea" -s "Path to your proyect"
         dotnet ef database update -s "Path to your proyect"

@@ -12,12 +12,12 @@ namespace Balea.Authorization.Abac
     internal class AbacAuthorizationHandler : AuthorizationHandler<AbacRequirement>
     {
         private readonly AbacAuthorizationContextFactory _abacAuthorizationContextFactory;
-        private readonly IRuntimeAuthorizationServerStore _runtimeAuthorizationServerStore;
+        private readonly IAuthorizationGrantor _runtimeAuthorizationServerStore;
         private readonly ILogger<AbacAuthorizationHandler> _logger;
 
         public AbacAuthorizationHandler(
             AbacAuthorizationContextFactory abacAuthorizationContextFactory,
-            IRuntimeAuthorizationServerStore runtimeAuthorizationServerStore,
+            IAuthorizationGrantor runtimeAuthorizationServerStore,
             ILogger<AbacAuthorizationHandler> logger)
         {
             Ensure.Argument.NotNull(abacAuthorizationContextFactory, nameof(abacAuthorizationContextFactory));

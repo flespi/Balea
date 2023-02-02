@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Balea;
-using Balea.EntityFrameworkCore.Store.DbContexts;
-using Balea.EntityFrameworkCore.Store.Entities;
+using Balea.Grantor.EntityFrameworkCore.DbContexts;
+using Balea.Grantor.EntityFrameworkCore.Entities;
 using ContosoUniversity.EntityFrameworkCore.Store.Models;
 
 namespace ContosoUniversity.EntityFrameworkCore.Store.Infrastructure.Data.Seeders

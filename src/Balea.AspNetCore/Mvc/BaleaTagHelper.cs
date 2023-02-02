@@ -15,12 +15,12 @@ namespace Balea.Mvc
         private static readonly char[] Separator = new[] { ',' };
 
         private readonly IHttpContextAccessor httpContextAccessor;
-        private readonly IRuntimeAuthorizationServerStore store;
+        private readonly IAuthorizationGrantor store;
         private readonly IPermissionEvaluator permissionEvaluator;
 
         public BaleaTagHelper(
             IHttpContextAccessor httpContextAccessor,
-            IRuntimeAuthorizationServerStore store,
+            IAuthorizationGrantor store,
             IPermissionEvaluator permissionEvaluator)
         {
             this.httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));

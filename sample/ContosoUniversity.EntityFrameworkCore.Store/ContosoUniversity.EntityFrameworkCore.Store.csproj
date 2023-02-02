@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Balea.AspNetCore\Balea.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\src\Balea.EntityFrameworkCore.Store\Balea.EntityFrameworkCore.Store.csproj" />
+    <ProjectReference Include="..\..\src\Balea.Grantor.EntityFrameworkCore\Balea.Grantor.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

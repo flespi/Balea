@@ -10,12 +10,12 @@ Setup
 
 To install Balea open a console window and type the following command using the .NET Core CLI::
 
-        dotnet package add Balea.Configuration.Store
+        dotnet package add Balea.Grantor.Configuration
 
 
 or using Powershell or Package Manager::
 
-        Install-Package Balea.Configuration.Store
+        Install-Package Balea.Grantor.Configuration
 
 or install via NuGet.
 
