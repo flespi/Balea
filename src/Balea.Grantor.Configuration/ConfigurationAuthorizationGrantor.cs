@@ -1,5 +1,6 @@
 ﻿using Balea.Abstractions;
 using Balea.Grantor.Configuration.Model;
+using Balea.Grantor.Configuration.Options;
 using Balea.Model;
 using System;
 using System.Linq;
@@ -36,13 +37,12 @@ namespace Balea.Grantor.Configuration
                     .Where(role =>
                         role.Enabled &&
                         role.Subjects.Contains(subject, StringComparer.InvariantCultureIgnoreCase) ||
-                        role.Mappings.Any(m => sourceRoleClaims.Contains(m, StringComparer.InvariantCultureIgnoreCase)))
-                    .Select(role => role.To());
+                        role.Mappings.Any(m => sourceRoleClaims.Contains(m, StringComparer.InvariantCultureIgnoreCase)));
 
             var authorization = new AuthorizationContext
             {
                 Roles = roles,
-                Delegation = delegation.To(),
+                Delegation = delegation,
             };
 
             return Task.FromResult(authorization);
@@ -71,7 +71,7 @@ namespace Balea.Grantor.Configuration
             });
         }
 
-        private string GetSubject(ClaimsPrincipal user, DelegationConfiguration delegation)
+        private string GetSubject(ClaimsPrincipal user, Delegation delegation)
         {
             return delegation?.Who ?? user.GetSubjectId(_options);
         }

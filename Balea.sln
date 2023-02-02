@@ -35,6 +35,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.IdentityS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balea.Store.Abstractions", "src\Balea.Store.Abstractions\Balea.Store.Abstractions.csproj", "{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balea.Store.Configuration", "src\Balea.Store.Configuration\Balea.Store.Configuration.csproj", "{1C99812D-069E-4029-9E23-CEF5B348A4E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balea.Store.EntityFrameworkCore", "src\Balea.Store.EntityFrameworkCore\Balea.Store.EntityFrameworkCore.csproj", "{17F7DAE8-305B-4E62-8B78-A1F2F6D9A505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balea.Provider.EntityFrameworkCore", "src\Balea.Provider.EntityFrameworkCore\Balea.Provider.EntityFrameworkCore.csproj", "{CDD3BEC9-B450-49C9-B98C-2232135DB2A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +87,18 @@ Global
 		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C99812D-069E-4029-9E23-CEF5B348A4E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C99812D-069E-4029-9E23-CEF5B348A4E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C99812D-069E-4029-9E23-CEF5B348A4E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C99812D-069E-4029-9E23-CEF5B348A4E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17F7DAE8-305B-4E62-8B78-A1F2F6D9A505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17F7DAE8-305B-4E62-8B78-A1F2F6D9A505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17F7DAE8-305B-4E62-8B78-A1F2F6D9A505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17F7DAE8-305B-4E62-8B78-A1F2F6D9A505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDD3BEC9-B450-49C9-B98C-2232135DB2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDD3BEC9-B450-49C9-B98C-2232135DB2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDD3BEC9-B450-49C9-B98C-2232135DB2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDD3BEC9-B450-49C9-B98C-2232135DB2A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +114,9 @@ Global
 		{9624712C-B17A-438B-9653-83F1BC35F38C} = {58F16D81-1049-4D95-83E8-D773BEE31A5B}
 		{B6AE3CFE-F70D-420A-B71C-85D4D4A48B09} = {902B3EDC-5C6F-4058-8A05-DA80D4B03F97}
 		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9} = {902B3EDC-5C6F-4058-8A05-DA80D4B03F97}
+		{1C99812D-069E-4029-9E23-CEF5B348A4E8} = {902B3EDC-5C6F-4058-8A05-DA80D4B03F97}
+		{17F7DAE8-305B-4E62-8B78-A1F2F6D9A505} = {902B3EDC-5C6F-4058-8A05-DA80D4B03F97}
+		{CDD3BEC9-B450-49C9-B98C-2232135DB2A3} = {902B3EDC-5C6F-4058-8A05-DA80D4B03F97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {943847A1-D097-4149-BEDC-B8541BE7D287}

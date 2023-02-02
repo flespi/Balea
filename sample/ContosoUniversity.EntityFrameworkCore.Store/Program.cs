@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using Balea.Grantor.EntityFrameworkCore.DbContexts;
+using Balea.Provider.EntityFrameworkCore.DbContexts;
 using ContosoUniversity.EntityFrameworkCore.Store.Infrastructure.Data.Seeders;
 
 namespace ContosoUniversity.EntityFrameworkCore.Store

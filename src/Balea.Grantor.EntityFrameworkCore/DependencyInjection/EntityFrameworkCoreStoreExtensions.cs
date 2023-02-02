@@ -1,42 +1,42 @@
-﻿using Balea.Abstractions;
+﻿using System;
+
+using Balea.Abstractions;
 using Balea.Grantor.EntityFrameworkCore;
-using Balea.Grantor.EntityFrameworkCore.DbContexts;
 using Balea.Grantor.EntityFrameworkCore.Options;
-using System;
+using Balea.Provider.EntityFrameworkCore.DbContexts;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection;
+
+public static class EntityFrameworkCoreStoreExtensions
 {
-    public static class EntityFrameworkCoreStoreExtensions
+    public static IBaleaBuilder AddEntityFrameworkCoreStore(this IBaleaBuilder builder, Action<StoreOptions> configurer = null)
     {
-        public static IBaleaBuilder AddEntityFrameworkCoreStore(this IBaleaBuilder builder, Action<StoreOptions> configurer = null)
+        var options = new StoreOptions();
+        configurer?.Invoke(options);
+
+        if (options.ConfigureDbContext != null)
         {
-            var options = new StoreOptions();
-            configurer?.Invoke(options);
-
-            if (options.ConfigureDbContext != null)
-            {
-                builder.Services.AddDbContextPool<BaleaDbContext>(optionsAction => options.ConfigureDbContext?.Invoke(optionsAction));
-            }
-
-            builder.Services.AddScoped<IAuthorizationGrantor, EntityFrameworkAuthorizationGrantor<BaleaDbContext>>();
-
-            return builder;
+            builder.Services.AddDbContextPool<BaleaDbContext>(optionsAction => options.ConfigureDbContext?.Invoke(optionsAction));
         }
 
-        public static IBaleaBuilder AddEntityFrameworkCoreStore<TContext>(this IBaleaBuilder builder, Action<StoreOptions> configurer = null) 
-            where TContext : BaleaDbContext
+        builder.Services.AddScoped<IAuthorizationGrantor, EntityFrameworkAuthorizationGrantor<BaleaDbContext>>();
+
+        return builder;
+    }
+
+    public static IBaleaBuilder AddEntityFrameworkCoreStore<TContext>(this IBaleaBuilder builder, Action<StoreOptions> configurer = null)
+        where TContext : BaleaDbContext
+    {
+        var options = new StoreOptions();
+        configurer?.Invoke(options);
+
+        if (options.ConfigureDbContext != null)
         {
-            var options = new StoreOptions();
-            configurer?.Invoke(options);
-
-            if (options.ConfigureDbContext != null)
-            {
-                builder.Services.AddDbContextPool<TContext>(optionsAction => options.ConfigureDbContext?.Invoke(optionsAction));
-            }
-
-            builder.Services.AddScoped<IAuthorizationGrantor, EntityFrameworkAuthorizationGrantor<TContext>>();
-
-            return builder;
+            builder.Services.AddDbContextPool<TContext>(optionsAction => options.ConfigureDbContext?.Invoke(optionsAction));
         }
+
+        builder.Services.AddScoped<IAuthorizationGrantor, EntityFrameworkAuthorizationGrantor<TContext>>();
+
+        return builder;
     }
 }

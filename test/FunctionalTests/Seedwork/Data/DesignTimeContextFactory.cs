@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
-using Balea.Grantor.EntityFrameworkCore.DbContexts;
+using Balea.Provider.EntityFrameworkCore.DbContexts;
 
 namespace FunctionalTests.Seedwork.Data
 {
