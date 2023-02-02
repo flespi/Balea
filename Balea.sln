@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.EntityFra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.IdentityServer", "sample\ContosoUniversity.IdentityServer\ContosoUniversity.IdentityServer.csproj", "{9624712C-B17A-438B-9653-83F1BC35F38C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balea.Store.Abstractions", "src\Balea.Store.Abstractions\Balea.Store.Abstractions.csproj", "{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{B6AE3CFE-F70D-420A-B71C-85D4D4A48B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6AE3CFE-F70D-420A-B71C-85D4D4A48B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6AE3CFE-F70D-420A-B71C-85D4D4A48B09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{FAB1588F-DEE0-4A06-94E2-51FC0B02C897} = {58F16D81-1049-4D95-83E8-D773BEE31A5B}
 		{9624712C-B17A-438B-9653-83F1BC35F38C} = {58F16D81-1049-4D95-83E8-D773BEE31A5B}
 		{B6AE3CFE-F70D-420A-B71C-85D4D4A48B09} = {902B3EDC-5C6F-4058-8A05-DA80D4B03F97}
+		{F38019E0-66FB-4C61-B32D-47D0BAD6F2B9} = {902B3EDC-5C6F-4058-8A05-DA80D4B03F97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {943847A1-D097-4149-BEDC-B8541BE7D287}

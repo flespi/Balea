@@ -6,6 +6,7 @@ using Balea.Authorization.Abac.Context;
 using Balea.Authorization.Rbac;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Policy;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using System;
 
@@ -30,7 +31,8 @@ namespace Microsoft.Extensions.DependencyInjection
             //add balea required services
             services.AddAuthorization();
             services.AddHttpContextAccessor();
-            services.AddSingleton(sp => sp.GetRequiredService<IOptions<BaleaAspNetOptions>>().Value.Common);
+			services.AddAppContextAccessor();
+			services.AddSingleton(sp => sp.GetRequiredService<IOptions<BaleaAspNetOptions>>().Value.Common);
 			services.AddSingleton(sp => sp.GetRequiredService<IOptions<BaleaAspNetOptions>>().Value.WebHost);
             services.AddSingleton<IAuthorizationPolicyProvider, AuthorizationPolicyProvider>();
 
@@ -46,5 +48,11 @@ namespace Microsoft.Extensions.DependencyInjection
 
             return new BaleaBuilder(services);
         }
-    }
+
+		public static IServiceCollection AddAppContextAccessor(this IServiceCollection services)
+		{
+			services.TryAddSingleton<IAppContextAccessor, AppContextAccessor>();
+			return services;
+		}
+	}
 }
