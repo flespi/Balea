@@ -13,14 +13,15 @@ namespace Balea.Grantor.Configuration.Model
                 return null;
             }
 
-            return new Role(
-                    role.Name,
-                    role.Description,
-                    role.Subjects,
-                    role.Mappings,
-                    role.Permissions.Distinct(),
-                    role.Enabled
-                );
+            return new Role
+            {
+                Name = role.Name,
+                Description = role.Description,
+                Subjects = role.Subjects,
+                Mappings = role.Mappings,
+                Permissions = role.Permissions.Distinct().ToList(),
+                Enabled = role.Enabled,
+            };
         }
 
         public static Delegation To(this DelegationConfiguration delegation)
@@ -30,12 +31,13 @@ namespace Balea.Grantor.Configuration.Model
                 return null;
             }
 
-            return new Delegation(
-                    delegation.Who,
-                    delegation.Whom,
-                    delegation.From,
-                    delegation.To
-                );
+            return new Delegation
+            {
+                Who = delegation.Who,
+                Whom = delegation.Whom,
+                From = delegation.From,
+                To = delegation.To,
+            };
         }
 
         public static DelegationConfiguration GetCurrentDelegation(this DelegationConfiguration[] delegations, string subjectId)

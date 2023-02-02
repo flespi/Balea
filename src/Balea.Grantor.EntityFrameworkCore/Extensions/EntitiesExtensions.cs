@@ -16,14 +16,15 @@ namespace Balea.Grantor.EntityFrameworkCore.Entities
                 return null;
             }
 
-            return new Role(
-                        role.Name,
-                        role.Description,
-                        role.Subjects.Select(rs => rs.Subject.Sub),
-                        role.Mappings.Select(rm => rm.Mapping.Name),
-                        role.Permissions.Select(rp => rp.Permission.Name),
-                        role.Enabled
-                    );
+            return new Role
+            {
+                Name = role.Name,
+                Description = role.Description,
+                Subjects = role.Subjects.Select(x => x.Subject.Sub).ToList(),
+                Mappings = role.Mappings.Select(x => x.Mapping.Name).ToList(),
+                Permissions = role.Permissions.Select(x => x.Permission.Name).ToList(),
+                Enabled = role.Enabled,
+            };
         }
 
         public static Delegation To(this DelegationEntity delegation)
@@ -33,12 +34,13 @@ namespace Balea.Grantor.EntityFrameworkCore.Entities
                 return null;
             }
 
-            return new Delegation(
-                    delegation.Who.Sub,
-                    delegation.Whom.Sub,
-                    delegation.From,
-                    delegation.To
-                );
+            return new Delegation
+            {
+                Who = delegation.Who.Sub,
+                Whom = delegation.Whom.Sub,
+                From = delegation.From,
+                To = delegation.To,
+            };
         }
 
         public static Task<DelegationEntity> GetCurrentDelegation(
@@ -68,7 +70,11 @@ namespace Balea.Grantor.EntityFrameworkCore.Entities
                 return null;
             }
 
-            return new Policy(policy.Name, policy.Content);
+            return new Policy
+            {
+                Name = policy.Name,
+                Content = policy.Content,
+            };
         }
     }
 }

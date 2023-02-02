@@ -2,27 +2,12 @@
 
 namespace Balea.Model
 {
-    public class Delegation
-    {
-        public Delegation(
-            string who,
-            string whom,
-            DateTime from,
-            DateTime to)
-        {
-            Ensure.Argument.NotNullOrEmpty(who);
-            Ensure.Argument.NotNullOrEmpty(whom);
-            Ensure.Argument.Is(from < to, "to should be greater than from");
-
-            Who = who;
-            Whom = whom;
-            From = from;
-            To = to;
-        }
-
-        public string Who { get; private set; }
-        public string Whom { get; private set; }
-        public DateTime From { get; private set; }
-        public DateTime To { get; private set; }
-    }
+	public class Delegation
+	{
+		public string Who { get; set; }
+		public string Whom { get; set; }
+		public DateTime From { get; set; }
+		public DateTime To { get; set; }
+		public bool Active => From <= DateTime.UtcNow && To >= DateTime.UtcNow;
+	}
 }

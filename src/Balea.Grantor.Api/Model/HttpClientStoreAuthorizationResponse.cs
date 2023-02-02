@@ -16,21 +16,27 @@ namespace Balea.Grantor.Api.Model
 
         public AuthorizationContext To()
         {
-            return new AuthorizationContext(
-                Roles.Select(role => new Role(
-                    role.Name,
-                    role.Description,
-                    role.Subjects,
-                    role.Mappings,
-                    role.Permissions,
-                    role.Enabled)),
-                Delegation is null 
-                    ? null 
-                    : new Delegation(
-                        Delegation.Who,
-                        Delegation.Whom,
-                        Delegation.From,
-                        Delegation.To));
+            return new AuthorizationContext
+            {
+                Roles = Roles.Select(role => new Role
+                {
+                    Name = role.Name,
+                    Description = role.Description,
+                    Subjects = role.Subjects,
+                    Mappings = role.Mappings,
+                    Permissions = role.Permissions,
+                    Enabled = role.Enabled,
+                }),
+                Delegation = Delegation is null
+                    ? null
+                    : new Delegation
+                    {
+                        Who = Delegation.Who,
+                        Whom = Delegation.Whom,
+                        From = Delegation.From,
+                        To = Delegation.To,
+                    },
+            };
         }
     }
 
@@ -44,9 +50,9 @@ namespace Balea.Grantor.Api.Model
         public string Name { get; set; }
         public string Description { get; set; }
         public bool Enabled { get; set; }
-        public IEnumerable<string> Permissions { get; set; }
-        public IEnumerable<string> Mappings { get; set; }
-        public IEnumerable<string> Subjects { get; set; }
+        public IList<string> Permissions { get; set; }
+        public IList<string> Mappings { get; set; }
+        public IList<string> Subjects { get; set; }
     }
 
     public class DelegationResponse

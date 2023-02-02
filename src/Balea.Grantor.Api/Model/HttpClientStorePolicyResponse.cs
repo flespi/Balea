@@ -9,7 +9,11 @@ namespace Balea.Grantor.Api.Model
 
         public Policy To()
         {
-            return new Policy(Name, Content);
+            return new Policy
+            {
+                Name = Name,
+                Content = Content,
+            };
         }
     }
 }

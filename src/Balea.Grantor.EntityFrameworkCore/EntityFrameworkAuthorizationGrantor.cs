@@ -48,7 +48,11 @@ namespace Balea.Grantor.EntityFrameworkCore
                     )
                     .ToListAsync(cancellationToken);
 
-            return new AuthorizationContext(roles.Select(r => r.To()), delegation.To());
+            return new AuthorizationContext
+            {
+                Roles = roles.Select(r => r.To()),
+                Delegation = delegation.To(),
+			};
         }
 
         public async Task<Policy> GetPolicyAsync(string name, CancellationToken cancellationToken = default)

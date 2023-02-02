@@ -62,7 +62,11 @@ namespace Balea.Store
 
 			var contextDelegation = delegation is null ? null : await GetDelegationInfoAsync(delegation, cancellationToken);
 
-			return new AuthorizationContext(contextRoles, contextDelegation);
+			return new AuthorizationContext
+			{
+				Roles = contextRoles,
+				Delegation = contextDelegation,
+			};
 		}
 
 		public async Task<Policy> GetPolicyAsync(string name, CancellationToken cancellationToken = default)
@@ -70,7 +74,11 @@ namespace Balea.Store
 			var policy = await _policyStore.FindByNameAsync(name, cancellationToken);
 			var content = await _policyStore.GetContentAsync(policy, cancellationToken);
 
-			return new Policy(name, content);
+			return new Policy
+			{
+				Name = name,
+				Content = content,
+			};
 		}
 
 		private async Task<Role> GetRoleInfoAsync(TRole role, CancellationToken cancellationToken)
@@ -83,7 +91,15 @@ namespace Balea.Store
 			var mappings = await _roleStore.GetMappingsAsync(role, cancellationToken);
 			var permissions = await _roleStore.GetPermissionsAsync(role, cancellationToken);
 
-			return new Role(name, description, subjects, mappings, permissions, enabled);
+			return new Role
+			{
+				Name = name,
+				Description = description,
+				Subjects = subjects,
+				Mappings = mappings,
+				Permissions = permissions,
+				Enabled = enabled,
+			};
 		}
 
 		private async Task<Delegation> GetDelegationInfoAsync(TDelegation delegation, CancellationToken cancellationToken)
@@ -93,7 +109,13 @@ namespace Balea.Store
 			var from = await _delegationStore.GetFromAsync(delegation, cancellationToken);
 			var to = await _delegationStore.GetToAsync(delegation, cancellationToken);
 
-			return new Delegation(who, whom, from, to);
+			return new Delegation
+			{
+				Who = who,
+				Whom = whom,
+				From = from,
+				To = to,
+			};
 		}
 	}
 }

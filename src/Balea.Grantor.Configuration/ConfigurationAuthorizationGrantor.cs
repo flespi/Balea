@@ -27,7 +27,7 @@ namespace Balea.Grantor.Configuration
 
             if (application is null)
             {
-                return Task.FromResult(new AuthorizationContext(new Role[0], null));
+                return Task.FromResult(new AuthorizationContext());
             }
 
             var delegation = application.Delegations.GetCurrentDelegation(user.GetSubjectId(_options));
@@ -39,7 +39,11 @@ namespace Balea.Grantor.Configuration
                         role.Mappings.Any(m => sourceRoleClaims.Contains(m, StringComparer.InvariantCultureIgnoreCase)))
                     .Select(role => role.To());
 
-            var authorization = new AuthorizationContext(roles, delegation.To());
+            var authorization = new AuthorizationContext
+            {
+                Roles = roles,
+                Delegation = delegation.To(),
+            };
 
             return Task.FromResult(authorization);
         }
@@ -60,7 +64,11 @@ namespace Balea.Grantor.Configuration
                 return Task.FromResult<Policy>(null);
             }
 
-            return Task.FromResult(new Policy(policy.Name, policy.Content));
+            return Task.FromResult(new Policy
+            {
+                Name = policy.Name,
+                Content = policy.Content
+            });
         }
 
         private string GetSubject(ClaimsPrincipal user, DelegationConfiguration delegation)

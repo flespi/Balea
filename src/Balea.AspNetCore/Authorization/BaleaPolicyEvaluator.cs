@@ -157,7 +157,7 @@ namespace Balea.Authorization
                 .Select(role => new Claim(_options.ClaimTypeMap.RoleClaimType, role.Name));
 
             var permissionClaims = authorization.Roles
-                .SelectMany(role => role.GetPermissions())
+                .SelectMany(role => role.Permissions)
                 .Distinct()
                 .Select(permission => new Claim(_options.ClaimTypeMap.PermissionClaimType, permission));
 
