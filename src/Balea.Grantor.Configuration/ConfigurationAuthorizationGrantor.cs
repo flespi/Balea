@@ -14,17 +14,23 @@ namespace Balea.Grantor.Configuration
     {
         private readonly BaleaConfiguration _configuration;
         private readonly BaleaOptions _options;
+		private readonly IAppContextAccessor _appContextAccessor;
 
-        public ConfigurationAuthorizationGrantor(BaleaConfiguration configuration, BaleaOptions options)
+		public ConfigurationAuthorizationGrantor(
+            BaleaConfiguration configuration,
+            BaleaOptions options,
+            IAppContextAccessor appContextAccessor
+            )
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _options = options ?? throw new ArgumentNullException(nameof(options));
-        }
+			_appContextAccessor = appContextAccessor ?? throw new ArgumentNullException(nameof(appContextAccessor));
+		}
 
-        public Task<AuthorizationContext> FindAuthorizationAsync(ClaimsPrincipal user, CancellationToken cancellationToken = default)
+		public Task<AuthorizationContext> FindAuthorizationAsync(ClaimsPrincipal user, CancellationToken cancellationToken = default)
         {
             var sourceRoleClaims = user.GetClaimValues(_options.ClaimTypeMap.RoleClaimType);
-            var application = _configuration.Applications.GetByName(_options.ApplicationName);
+            var application = _configuration.Applications.GetByName(_appContextAccessor.AppContext.Name);
 
             if (application is null)
             {
@@ -50,7 +56,7 @@ namespace Balea.Grantor.Configuration
 
         public Task<Policy> GetPolicyAsync(string name, CancellationToken cancellationToken = default)
         {
-            var application = _configuration.Applications.GetByName(_options.ApplicationName);
+            var application = _configuration.Applications.GetByName(_appContextAccessor.AppContext.Name);
 
             if (application is null)
             {

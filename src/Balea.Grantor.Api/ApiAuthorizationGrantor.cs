@@ -18,23 +18,27 @@ namespace Balea.Grantor.Api
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly StoreOptions _storeOptions;
         private readonly BaleaOptions _baleaOptions;
-        private readonly ILogger<ApiAuthorizationGrantor> _logger;
+		private readonly IAppContextAccessor _appContextAccessor;
+		private readonly ILogger<ApiAuthorizationGrantor> _logger;
         private readonly IDistributedCache _cache;
 
         public ApiAuthorizationGrantor(
             IHttpClientFactory httpClientFactory,
             StoreOptions storeOptions,
             BaleaOptions baleaOptions,
-            ILogger<ApiAuthorizationGrantor> logger,
+			IAppContextAccessor appContextAccessor,
+    		ILogger<ApiAuthorizationGrantor> logger,
             IDistributedCache cache = null)
         {
             Ensure.Argument.NotNull(httpClientFactory, nameof(httpClientFactory));
             Ensure.Argument.NotNull(storeOptions, nameof(storeOptions));
             Ensure.Argument.NotNull(baleaOptions, nameof(baleaOptions));
-            Ensure.Argument.NotNull(logger, nameof(logger));
+			Ensure.Argument.NotNull(appContextAccessor, nameof(appContextAccessor));
+			Ensure.Argument.NotNull(logger, nameof(logger));
             _httpClientFactory = httpClientFactory;
             _storeOptions = storeOptions;
             _baleaOptions = baleaOptions;
+            _appContextAccessor = appContextAccessor;
             _logger = logger;
             _cache = cache;
         }
@@ -43,7 +47,7 @@ namespace Balea.Grantor.Api
         {
             if (_storeOptions.CacheEnabled)
             {
-                var key = $"balea:1.0:user:{user.GetSubjectId(_baleaOptions)}:application:{_baleaOptions.ApplicationName}";
+                var key = $"balea:1.0:user:{user.GetSubjectId(_baleaOptions)}:application:{_appContextAccessor.AppContext.Name}";
                 
                 var cachedResponse = await _cache.GetOrSet(
                     key,
@@ -69,7 +73,7 @@ namespace Balea.Grantor.Api
         {
             if (_storeOptions.CacheEnabled)
             {
-                var key = $"balea:1.0:application:{_baleaOptions.ApplicationName}:policy:{name}";
+                var key = $"balea:1.0:application:{_appContextAccessor.AppContext.Name}:policy:{name}";
 
                 var cachedResponse = await _cache.GetOrSet(
                     key,
@@ -96,7 +100,7 @@ namespace Balea.Grantor.Api
             var client = _httpClientFactory.CreateClient(Constants.BaleaClient);
 
             return await client.GetJsonAsync<HttpClientStoreAuthorizationResponse>(
-                $"api/users/{user.GetSubjectId(_baleaOptions)}/applications/{_baleaOptions.ApplicationName}/authorization?api-version=1.0{GetMappings(user)}");
+                $"api/users/{user.GetSubjectId(_baleaOptions)}/applications/{_appContextAccessor.AppContext.Name}/authorization?api-version=1.0{GetMappings(user)}");
         }
 
         private async Task<HttpClientStorePolicyResponse> GetPolicy(string name)
@@ -104,7 +108,7 @@ namespace Balea.Grantor.Api
             var client = _httpClientFactory.CreateClient(Constants.BaleaClient);
 
             return await client.GetJsonAsync<HttpClientStorePolicyResponse>(
-                $"api/applications/{_baleaOptions.ApplicationName}/policies/{name}?api-version=1.0");
+                $"api/applications/{_appContextAccessor.AppContext.Name}/policies/{name}?api-version=1.0");
         }
 
         private string GetMappings(ClaimsPrincipal user)
